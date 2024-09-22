@@ -1,0 +1,6 @@
+<?php
+return [
+    'auth' => 'https://debricked.com/api/login_check',
+    'upload' => 'https://debricked.com/api/1.0/open/uploads/dependencies/files',
+    'status' => 'https://debricked.com/api/1.0/open/ci/upload/status',
+];
