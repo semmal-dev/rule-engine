@@ -1,4 +1,4 @@
-# Dependency File Scanning Assignment
+# Dependency File Scanning
 
 This project demonstrates a simplified flow for scanning multiple dependency files in real time. The solution is built using **Laravel**, which provides robust support for queues and jobs.
 
