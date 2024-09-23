@@ -18,7 +18,7 @@ The project is built using **Laravel Sail** for Docker integration. You can star
 
 - Clone the repository from GitHub.
 - Create a `.env` file from `.env.sample`:
-cp .env.sample .env
+`cp .env.sample .env`
 
 
 - Create a `debricked.php` configuration file from `debricked.php-sample`:
@@ -26,7 +26,7 @@ cp debricked.php-sample debricked.php
 
 
 - Install dependencies:
-composer install
+`composer install`
 
 #### Using Laravel Sail
 
