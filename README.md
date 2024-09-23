@@ -1,91 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>README</title>
-</head>
-<body>
-    <h1>Dependency File Scanning Assignment</h1>
-    
-    <p>This project demonstrates a simplified flow for scanning multiple dependency files in real time. The solution is built using the <strong>Laravel</strong> framework instead of <strong>Symfony</strong>, as Laravel provides robust development support for handling queues and jobs.</p>
+# Dependency File Scanning Assignment
 
-    <h2>Setup Instructions</h2>
+This project demonstrates a simplified flow for scanning multiple dependency files in real time. The solution is built using **Laravel**, which provides robust support for queues and jobs.
 
-    <h3>Prerequisites</h3>
-    <ul>
-        <li>Docker installed</li>
-        <li>PHP installed (if not using Sail)</li>
-        <li>Composer installed</li>
-    </ul>
+## Setup Instructions
 
-    <h3>Running the Application</h3>
-    <p>The project is built using <strong>Laravel Sail</strong> for Docker integration. You can start the project with either Sail or Docker Compose.</p>
+### Prerequisites
 
-    <h4>Using Laravel Sail</h4>
-    <ol>
-        <li>Navigate to the <code>vendor/bin</code> directory.</li>
-        <li>Start Sail:
-            <pre><code>sail up</code></pre>
-        </li>
-        <li>Run the following commands to migrate the database, start the queue, and execute tests:
-            <pre><code>
-sail artisan migrate
-sail artisan queue:work
-sail artisan test
-            </code></pre>
-        </li>
-    </ol>
+- Docker installed
+- PHP installed (if not using Sail)
+- Composer installed
 
-    <h4>Using Docker Compose</h4>
-    <ol>
-        <li>Start the Docker containers:
-            <pre><code>docker compose up</code></pre>
-        </li>
-        <li>Inside the Docker container, run:
-            <pre><code>
-php artisan migrate
-php artisan queue:work
-php artisan test
-            </code></pre>
-        </li>
-    </ol>
+### Running the Application
 
-    <h3>Initial Setup After Cloning</h3>
-    <ol>
-        <li>Clone the repository from GitHub.</li>
-        <li>Create a <code>.env</code> file from <code>.env.sample</code>:
-            <pre><code>cp .env.sample .env</code></pre>
-        </li>
-        <li>Create a <code>debricked.php</code> configuration file from the sample:
-            <pre><code>cp debricked.php-sample debricked.php</code></pre>
-        </li>
-        <li>Install dependencies:
-            <pre><code>composer install</code></pre>
-        </li>
-    </ol>
+The project is built using **Laravel Sail** for Docker integration. You can start the project with either Sail or Docker Compose.
 
-    <h3>Notes on the Flow</h3>
-    <ul>
-        <li><strong>File Scanning</strong>: The project supports real-time scanning of multiple dependency files. Before submitting files, ensure you are authenticated.</li>
-        <li><strong>File Format Handling</strong>: For now, the file format validation is skipped, as the supported formats for Debricked API were unclear. The API errors are caught and handled gracefully.</li>
-    </ul>
+### Initial Setup After Cloning
 
-    <h3>Technologies Used</h3>
-    <ul>
-        <li><strong>Authentication</strong>: Laravel Passport (OAuth)</li>
-        <li><strong>Database</strong>: MySQL</li>
-        <li><strong>Queue Management</strong>: Laravel Queue (using the database driver)</li>
-        <li><strong>ORM</strong>: Eloquent</li>
-        <li><strong>API</strong>: RESTful architecture</li>
-        <li><strong>Email Service</strong>: Mailtrap for SMTP</li>
-        <li><strong>Framework</strong>: Laravel</li>
-    </ul>
+- Clone the repository from GitHub.
+- Create a `.env` file from `.env.sample`:
+cp .env.sample .env
 
-    <h3>Future Enhancements</h3>
-    <ul>
-        <li><strong>File Storage</strong>: Currently, file details are not stored in the database, as scanning is done in real time. This approach sends email notifications based on the scanning response.</li>
-        <li><strong>Webhook Integration</strong>: If Debricked offers webhook support, the file data can be stored in the database. Webhooks could then handle large files and send emails for success, failure, and vulnerability warnings once scanning is complete.</li>
-    </ul>
-</body>
-</html>
+
+- Create a `debricked.php` configuration file from `debricked.php-sample`:
+cp debricked.php-sample debricked.php
+
+
+- Install dependencies:
+composer install
+
+#### Using Laravel Sail
+
+1. Navigate to the `vendor/bin` directory.
+2. Start Sail:
+`sail up`
+
+
+3. Run the following commands to migrate the database, start the queue, and execute tests:
+`sail artisan migrate` `sail artisan queue`
+`sail artisan test`
+
+
+#### Using Docker Compose
+
+1. Start the Docker containers:
+`docker compose up`
+
+2. Inside the Docker container, run:
+`php artisan migrate` 
+`php artisan queue:work`
+`php artisan test`
+
+## Notes on Implementation
+
+- **File Scanning**: Supports scanning of multiple files. Authenticate before submitting the files.
+- **File Format Handling**: Skipped file format checking due to uncertainty about supported formats, catching errors from the Debricked API.
+
+## Technologies Used
+
+1. **Authentication**: Laravel Passport
+2. **Database**: MySQL
+3. **Queue**: Laravel Queue, database driver
+4. **ORM**: Eloquent
+5. **API**: REST
+6. **Email (SMTP)**: Mailtrap
+7. **Framework**: Laravel
+
+## Future Enhancements
+
+- **File Storage**: Currently not storing file details in the database as files are scanned in real time and emails are sent based on the response.
+- **Webhook Integration**: If Debricked has webhook support, we could store file details in the database and manage large file scanning and notific
